@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TETRIS - Multiplayer 1-4P</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1 class="logo">TETRIS</h1>
+    <div class="top-bar">
+      <div id="globalHigh" class="chip"></div>
+      <select id="langSelect" class="lang-select"><option value="en">EN</option><option value="es">ES</option><option value="fr">FR</option><option value="pt">PT</option><option value="de">DE</option></select>
+      <button id="soundBtn">🔊</button>
+      <button id="pauseBtn">⏸</button>
+      <button id="restartBtn">↻</button>
+    </div>
+  </header>
+
+  <div id="startScreen" class="overlay show">
+    <div class="modal">
+      <h2 class="logo small">TETRIS</h2>
+      <p class="subtitle" data-i18n="subtitle">Battle Edition — Last Player Standing Wins</p>
+      
+      <div class="selector">
+        <span data-i18n="players">PLAYERS</span>
+        <div id="pBtns" class="pills">
+          <button data-n="1" class="active">1P</button>
+          <button data-n="2">2P</button>
+          <button data-n="3">3P</button>
+          <button data-n="4">4P</button>
+        </div>
+      </div>
+
+      <div class="selector">
+        <span data-i18n="difficulty">DIFFICULTY</span>
+        <div id="dBtns" class="pills">
+          <button data-diff="easy" data-i18n="easy">EASY</button>
+          <button data-diff="medium" class="active" data-i18n="medium">MEDIUM</button>
+          <button data-diff="hard" data-i18n="hard">HARD</button>
+        </div>
+      </div>
+
+      <div class="selector">
+        <span data-i18n="language">LANGUAGE</span>
+        <div id="lBtns" class="pills lang-pills">
+          <button data-lang="en">🇺🇸 EN</button>
+          <button data-lang="es">🇪🇸 ES</button>
+          <button data-lang="fr">🇫🇷 FR</button>
+          <button data-lang="pt">🇧🇷 PT</button>
+          <button data-lang="de">🇩🇪 DE</button>
+        </div>
+      </div>
+
+      <button id="playBtn" class="play" data-i18n="play">PLAY</button>
+
+      <div class="legend">
+        <div><b>P1</b> ARROWS + UP / SPACE</div>
+        <div><b>P2</b> WASD + Q / E</div>
+        <div><b>P3</b> IJKL + U / O</div>
+        <div><b>P4</b> NUMPAD 4 6 5 + 7 / 9</div>
+        <div><span data-i18n="pauseHint">P Pause — R Restart</span></div>
+      </div>
+      <div id="hsList" class="hs"></div>
+    </div>
+  </div>
+
+  <div id="pauseScreen" class="overlay">
+    <div class="modal"><h2 data-i18n="paused">PAUSED</h2><button id="resumeBtn" class="play" data-i18n="resume">RESUME</button></div>
+  </div>
+
+  <div id="overScreen" class="overlay">
+    <div class="modal" id="overContent"></div>
+  </div>
+
+  <main id="boards" class="boards"></main>
+
+  <script src="script.js"></script>
+</body>
+</html>
